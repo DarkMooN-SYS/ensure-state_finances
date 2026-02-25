@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FiveM State Finances Menu</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+
+</head>
+<body class="menu-page">
+<div id="finances-menu" class="menu-wrapper">
+<header class="menu-header">
+<h1 class="menu-title">State Finances</h1>
+<p class="menu-subtitle">
+                Adjust the sliders to edit the state finances. Ensure the state has a positive net revenue to avoid bankruptcy.<br/>
+                Previous revenue and cost values are calculated over the last 7 days and are only approximate values.
+            </p>
+<div class="menu-divider"></div>
+</header>
+<main class="menu-main">
+<details class="section">
+<summary class="section-summary">
+<span class="material-icons section-chevron-left">chevron_left</span>
+<span class="section-title">Global Taxes</span>
+<span class="material-icons section-chevron chevron">expand_more</span>
+</summary>
+<div class="section-body">
+<div class="card" data-key="general_tax">
+<div class="card-header">
+<div>
+<h3 class="card-title">General Tax</h3>
+<p class="card-desc">Tax rate applied to transactions not covered under other budget categories.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Rev.</p>
+<p class="card-stat-value card-stat-value--rev">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 45%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="45"/>
+</div>
+</div>
+<div class="card" data-key="fuel_tax">
+<div class="card-header">
+<div>
+<h3 class="card-title">Fuel Tax</h3>
+<p class="card-desc">Tax rate applied to purchases of fuel.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Rev.</p>
+<p class="card-stat-value card-stat-value--rev">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 25%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="25"/>
+</div>
+</div>
+<div class="card" data-key="vehicle_tax">
+<div class="card-header">
+<div>
+<h3 class="card-title">Vehicle Tax</h3>
+<p class="card-desc">Tax rate applied to registering, purchasing, or renting a vehicle.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Rev.</p>
+<p class="card-stat-value card-stat-value--rev">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 60%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="60"/>
+</div>
+</div>
+<div class="card" data-key="income_tax">
+<div class="card-header">
+<div>
+<h3 class="card-title">Income Tax</h3>
+<p class="card-desc">Tax rate applied to personal income earned by civilians.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Rev.</p>
+<p class="card-stat-value card-stat-value--rev">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 55%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="55"/>
+</div>
+</div>
+</div>
+</details>
+<details class="section">
+<summary class="section-summary">
+<span class="material-icons section-chevron-left">chevron_left</span>
+<span class="section-title">Property Taxes</span>
+<span class="material-icons section-chevron chevron">expand_more</span>
+</summary>
+<div class="section-body-grid">
+<div class="card card-green" data-key="residential_property_tax">
+<div class="card-glow card-glow--green"></div>
+<div class="card-header">
+<div>
+<h3 class="card-title">Residential Property Tax</h3>
+<p class="card-desc">Tax rate applied to monthly property bills.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Rev.</p>
+<p class="card-stat-value card-stat-value--green">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 30%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="30"/>
+</div>
+</div>
+<div class="card card-blue" data-key="commercial_property_tax">
+<div class="card-glow card-glow--blue"></div>
+<div class="card-header">
+<div>
+<h3 class="card-title">Commercial Property Tax</h3>
+<p class="card-desc">Tax rate applied to monthly property bills.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Rev.</p>
+<p class="card-stat-value card-stat-value--blue">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 40%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="40"/>
+</div>
+</div>
+<div class="card card-yellow" data-key="industrial_property_tax">
+<div class="card-glow card-glow--yellow"></div>
+<div class="card-header">
+<div>
+<h3 class="card-title">Industrial Property Tax</h3>
+<p class="card-desc">Tax rate applied to monthly property bills.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Rev.</p>
+<p class="card-stat-value card-stat-value--rev">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 55%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="55"/>
+</div>
+</div>
+<div class="card card-teal" data-key="office_property_tax">
+<div class="card-glow card-glow--teal"></div>
+<div class="card-header">
+<div>
+<h3 class="card-title">Office Property Tax</h3>
+<p class="card-desc">Tax rate applied to monthly property bills.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Rev.</p>
+<p class="card-stat-value card-stat-value--teal">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 45%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="45"/>
+</div>
+</div>
+<div class="card card-gray" data-key="utility_property_tax">
+<div class="card-glow card-glow--gray"></div>
+<div class="card-header">
+<div>
+<h3 class="card-title">Utility Property Tax</h3>
+<p class="card-desc">Tax rate applied to monthly property bills.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Rev.</p>
+<p class="card-stat-value card-stat-value--rev">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 25%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="25"/>
+</div>
+</div>
+<div class="card card-gray" data-key="vacant_property_tax">
+<div class="card-glow card-glow--gray"></div>
+<div class="card-header">
+<div>
+<h3 class="card-title">Vacant Property Tax</h3>
+<p class="card-desc">Tax rate applied to monthly property bills.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Rev.</p>
+<p class="card-stat-value card-stat-value--rev">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 65%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="65"/>
+</div>
+</div>
+</div>
+</details>
+<details class="section">
+<summary class="section-summary">
+<span class="material-icons section-chevron-left">chevron_left</span>
+<span class="section-title">Property Subsidies</span>
+<span class="material-icons section-chevron chevron">expand_more</span>
+</summary>
+<div class="section-body-grid">
+<div class="card card-green card-sub-green" data-key="residential_power_subsidy">
+<div class="card-header">
+<div>
+<h3 class="card-title">Residential Power Subsidy</h3>
+<p class="card-desc">Power bill percentage subsidized by the state.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Cost</p>
+<p class="card-stat-value card-stat-value--cost">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 15%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="15"/>
+</div>
+</div>
+<div class="card card-blue card-sub-blue" data-key="commercial_power_subsidy">
+<div class="card-header">
+<div>
+<h3 class="card-title">Commercial Power Subsidy</h3>
+<p class="card-desc">Power bill percentage subsidized by the state.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Cost</p>
+<p class="card-stat-value card-stat-value--cost">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 10%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="10"/>
+</div>
+</div>
+<div class="card card-yellow card-sub-yellow" data-key="industrial_power_subsidy">
+<div class="card-header">
+<div>
+<h3 class="card-title">Industrial Power Subsidy</h3>
+<p class="card-desc">Power bill percentage subsidized by the state.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Cost</p>
+<p class="card-stat-value card-stat-value--cost">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 10%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="10"/>
+</div>
+</div>
+<div class="card card-teal card-sub-teal" data-key="office_power_subsidy">
+<div class="card-header">
+<div>
+<h3 class="card-title">Office Power Subsidy</h3>
+<p class="card-desc">Power bill percentage subsidized by the state.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Cost</p>
+<p class="card-stat-value card-stat-value--cost">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 10%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="10"/>
+</div>
+</div>
+<div class="card card-gray card-sub-gray" data-key="utility_power_subsidy">
+<div class="card-header">
+<div>
+<h3 class="card-title">Utility Power Subsidy</h3>
+<p class="card-desc">Power bill percentage subsidized by the state.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Cost</p>
+<p class="card-stat-value card-stat-value--cost">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 10%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="10"/>
+</div>
+</div>
+<div class="card card-sub-dark" data-key="vacant_power_subsidy">
+<div class="card-header">
+<div>
+<h3 class="card-title">Vacant Power Subsidy</h3>
+<p class="card-desc">Power bill percentage subsidized by the state.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Cost</p>
+<p class="card-stat-value card-stat-value--cost">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 10%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="10"/>
+</div>
+</div>
+</div>
+</details>
+<details class="section">
+<summary class="section-summary">
+<span class="material-icons section-chevron-left">chevron_left</span>
+<span class="section-title">Police Department Finances</span>
+<span class="material-icons section-chevron chevron">expand_more</span>
+</summary>
+<div class="section-body-grid">
+<div class="card" data-key="police_employee_salary">
+<div class="card-header">
+<div>
+<h3 class="card-title">Employee Salary</h3>
+<p class="card-desc">Adjustments to the salary of police employees.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Cost</p>
+<p class="card-stat-value card-stat-value--cost">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 65%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="65"/>
+</div>
+</div>
+<div class="card" data-key="police_equipment_sales_tax">
+<div class="card-header">
+<div>
+<h3 class="card-title">Equipment Sales Tax</h3>
+<p class="card-desc">Tax rate for police-related equipment.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Rev.</p>
+<p class="card-stat-value card-stat-value--rev">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 45%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="45"/>
+</div>
+</div>
+</div>
+</details>
+<details class="section">
+<summary class="section-summary">
+<span class="material-icons section-chevron-left">chevron_left</span>
+<span class="section-title">Department of Justice Finances</span>
+<span class="material-icons section-chevron chevron">expand_more</span>
+</summary>
+<div class="section-body">
+<div class="section-inner-grid">
+<div class="card" data-key="public_defender_salary">
+<div class="card-header">
+<div>
+<h3 class="card-title">Public Defender Salary</h3>
+<p class="card-desc">Adjustments to the salary of public defenders.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Cost</p>
+<p class="card-stat-value card-stat-value--cost">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 45%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="45"/>
+</div>
+</div>
+<div class="card" data-key="judge_salary">
+<div class="card-header">
+<div>
+<h3 class="card-title">Judge Salary</h3>
+<p class="card-desc">Adjustments to the salary of judges.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Cost</p>
+<p class="card-stat-value card-stat-value--cost">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 55%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="55"/>
+</div>
+</div>
+<div class="card" data-key="county_clerk_salary">
+<div class="card-header">
+<div>
+<h3 class="card-title">County Clerk Salary</h3>
+<p class="card-desc">Adjustments to the salary of county clerks.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Cost</p>
+<p class="card-stat-value card-stat-value--cost">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 48%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="48"/>
+</div>
+</div>
+<div class="card" data-key="city_council_salary">
+<div class="card-header">
+<div>
+<h3 class="card-title">City Council Salary</h3>
+<p class="card-desc">Adjustments to the salary of the city council.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Cost</p>
+<p class="card-stat-value card-stat-value--cost">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 35%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="35"/>
+</div>
+</div>
+<div class="card" data-key="doc_salary">
+<div class="card-header">
+<div>
+<h3 class="card-title">DOC Salary</h3>
+<p class="card-desc">Adjustments to the salary of DOC employees.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Cost</p>
+<p class="card-stat-value card-stat-value--cost">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 40%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="40"/>
+</div>
+</div>
+<div class="card" data-key="fine_costs">
+<div class="card-header">
+<div>
+<h3 class="card-title">Fine Costs</h3>
+<p class="card-desc">Adjustments to the cost of issued fines.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Rev.</p>
+<p class="card-stat-value card-stat-value--teal">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 60%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="60"/>
+</div>
+</div>
+</div>
+<div class="card" data-key="sentence_lengths">
+<div class="card-header">
+<div>
+<h3 class="card-title">Sentence Lengths</h3>
+<p class="card-desc">Adjustments to the length of jail sentences.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Cost</p>
+<p class="card-stat-value card-stat-value--cost">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 75%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="75"/>
+</div>
+</div>
+</div>
+</details>
+<details class="section">
+<summary class="section-summary">
+<span class="material-icons section-chevron-left">chevron_left</span>
+<span class="section-title">Emergency Medical Service Finances</span>
+<span class="material-icons section-chevron chevron">expand_more</span>
+</summary>
+<div class="section-body">
+<div class="section-inner-grid">
+<div class="card" data-key="ems_employee_salary">
+<div class="card-header">
+<div>
+<h3 class="card-title">Employee Salary</h3>
+<p class="card-desc">Adjustments to the salary of EMS employees.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Cost</p>
+<p class="card-stat-value card-stat-value--cost">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 45%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="45"/>
+</div>
+</div>
+<div class="card" data-key="doctor_salary">
+<div class="card-header">
+<div>
+<h3 class="card-title">Doctor Salary</h3>
+<p class="card-desc">Adjustments to the salary of doctors.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Cost</p>
+<p class="card-stat-value card-stat-value--cost">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 60%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="60"/>
+</div>
+</div>
+<div class="card" data-key="therapist_salary">
+<div class="card-header">
+<div>
+<h3 class="card-title">Therapist Salary</h3>
+<p class="card-desc">Adjustments to the salary of therapists.</p>
+</div>
+<div class="card-stat">
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 30%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="30"/>
+</div>
+</div>
+<div class="card" data-key="ems_equipment_sales_tax">
+<div class="card-header">
+<div>
+<h3 class="card-title">Equipment Sales Tax</h3>
+<p class="card-desc">Tax for medical-related equipment.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Rev.</p>
+<p class="card-stat-value card-stat-value--rev">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 25%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="25"/>
+</div>
+</div>
+</div>
+<div class="card" data-key="efficient_medical_supplies_investment">
+<div class="card-header--center">
+<div>
+<h3 class="card-title">Efficient Medical Supplies Investment</h3>
+<p class="card-desc">State investment in medical supplies that are more efficient per use.</p>
+</div>
+<label class="flex items-center cursor-pointer relative">
+<input class="custom-checkbox border-white/20 text-primary focus:ring-0 focus:ring-offset-0 bg-transparent rounded-sm h-5 w-5" type="checkbox"/>
+</label>
+</div>
+</div>
+</div>
+</details>
+<details class="section">
+<summary class="section-summary">
+<span class="material-icons section-chevron-left">chevron_left</span>
+<span class="section-title">Mechanic Finances</span>
+<span class="material-icons section-chevron chevron">expand_more</span>
+</summary>
+<div class="section-body">
+<div class="card" data-key="mechanic_equipment_sales_tax">
+<div class="card-header">
+<div>
+<h3 class="card-title">Equipment Sales Tax</h3>
+<p class="card-desc">Tax rate for mechanic and towing-related equipment, including vehicle customization through Benny's.</p>
+</div>
+<div class="card-stat">
+<p class="card-stat-label">Prev. 7-Day Rev.</p>
+<p class="card-stat-value card-stat-value--rev">$10,000</p>
+</div>
+</div>
+<div class="slider-area">
+<div class="slider-wrapper">
+<div class="slider-fill" style="width: 55%;"></div>
+</div>
+<input class="range-input" max="100" min="0" oninput="this.previousElementSibling.children[0].style.width = this.value + '%'" type="range" value="55"/>
+</div>
+</div>
+</div>
+</details>
+</main>
+<div class="stats-section">
+<div class="stats-header">
+<h4 id="stats-range-title" class="stats-title">Approximate State Account Statistics for the Last 7 Days:</h4>
+<div id="calendar-trigger">
+<button id="calendar-btn">
+<span class="material-icons">calendar_today</span>
+</button>
+<div class="calendar-popover hidden" id="calendar-modal">
+<div class="cal-header">
+<button id="cal-prev-month" class="cal-nav-btn"><span class="material-icons">chevron_left</span></button>
+<h3 class="cal-title"><span id="cal-month-label"></span></h3>
+<button id="cal-next-month" class="cal-nav-btn"><span class="material-icons">chevron_right</span></button>
+</div>
+<div class="cal-filters">
+<button class="cal-filter-btn active" data-range="7">Last 7 Days</button>
+<button class="cal-filter-btn" data-range="30">Last 30 Days</button>
+<button class="cal-filter-btn" data-range="custom">Custom</button>
+</div>
+<div class="cal-weekdays">
+<span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+</div>
+<div class="cal-days" id="cal-days-grid"></div>
+<div class="cal-range-label">
+<span id="cal-range-label-text">Last 7 Days</span>
+</div>
+</div>
+</div>
+</div>
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-card__bar stat-card__bar--teal"></div>
+<p class="stat-card__label">Revenue:</p>
+<p id="stat-revenue" class="stat-card__value stat-card__value--green">
+                            $0
+                        </p>
+</div>
+<div class="stat-card">
+<div class="stat-card__bar stat-card__bar--red"></div>
+<p class="stat-card__label">Costs:</p>
+<p id="stat-costs" class="stat-card__value stat-card__value--red">
+                            $0
+                        </p>
+</div>
+<div class="stat-card">
+<div class="stat-card__bar stat-card__bar--green"></div>
+<p class="stat-card__label">Net Revenue:</p>
+<p id="stat-net" class="stat-card__value stat-card__value--green">
+                            $0
+                        </p>
+</div>
+</div>
+</div>
+<footer class="menu-footer">
+    <button id="close-btn" class="btn-close">
+        <span class="material-icons">close</span>
+        Close
+    </button>
+    <button id="save-btn" class="btn-save">
+        <span class="material-icons">save</span>
+        Save Changes
+    </button>
+</footer>
+</div>
+<div class="side-accent"><div class="side-accent__fill"></div></div>
+<script src="script.js"></script>
+</body></html>
